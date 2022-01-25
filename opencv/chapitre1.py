@@ -1,5 +1,4 @@
 import cv2;
-
 #Read Image
 img = cv2.imread("assets/zulu.jpg");
 
