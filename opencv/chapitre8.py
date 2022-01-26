@@ -1,10 +1,10 @@
 import cv2;
 
 facesCascade = cv2.CascadeClassifier("./haarcascade_frontalface_default.xml");
-img = cv2.imread("assets/zulu.jpg");
+img = cv2.imread("assets/team2.jpg");
 imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY);
 
-faces = facesCascade.detectMultiScale(imgGray,1.1,4);
+faces = facesCascade.detectMultiScale(imgGray,1.1,2);
 
 for (x,y,w, h) in faces :
     cv2.rectangle(img, (x,y), (x+w,y+h), (255,0,255),2)
