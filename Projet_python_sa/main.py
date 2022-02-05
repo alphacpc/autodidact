@@ -1,32 +1,8 @@
-import csv
+import render_tabs_etudiants;
 
-count = 0;
-Tab = [];
 
-with open("Projet_datas.csv", newline='') as csv_file:
 
-    content = csv.reader(csv_file);
-    fieldnames = ["Code","Numero", "Nom", "Prenom", "Naissance", "Classe", "Note"];
+arrray_students = render_tabs_etudiants.return_tabs("Projet_datas.csv");
 
-    for row in content:
-        
-        if count == 0:
-            print("Hello world !"); 
-
-        elif count > 2:
-            # print(row)
-            dictionnaire = dict(zip(fieldnames,row))
-            # print(dictionnaire)
-            Tab.append(dictionnaire);
-
-        count += 1
-
-        if(count >= 6): 
-            break;
-
-    print(Tab)
-    print(len(Tab))
-    print(Tab[2])
-    # print(fieldnames);
-
-    csv_file.close();
+print("**************Longueur du tableau vaut :*****************\n", len(arrray_students));
+print("**************La liste des étudiants :*******************\n", arrray_students);
