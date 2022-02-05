@@ -9,11 +9,8 @@ with open("Projet_datas.csv", newline='') as csv_file:
     fieldnames = ["Code","Numero", "Nom", "Prenom", "Naissance", "Classe", "Note"];
 
     for row in content:
-        
-        if count == 0:
-            print("Hello world !"); 
-
-        elif count > 2:
+    
+        if count > 2:
             # print(row)
             dictionnaire = dict(zip(fieldnames,row))
             # print(dictionnaire)
