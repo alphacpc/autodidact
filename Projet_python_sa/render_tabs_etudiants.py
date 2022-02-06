@@ -1,4 +1,5 @@
 import csv;
+import re
 
 Tab = [];
 
@@ -19,6 +20,10 @@ def return_tabs(filename):
                     
                 elif count >= 2:
                     dictionnaire = dict(zip(fieldnames,row));
+                    # print(dictionnaire,"\n")
+                    # print(dictionnaire["Date de naissance"],"\n")
+                    dictionnaire["Date de naissance"] = re.split('[-./ ]',dictionnaire["Date de naissance"]);
+                    # print(seg,"\n")
                     Tab.append(dictionnaire);  
 
             count += 1;
