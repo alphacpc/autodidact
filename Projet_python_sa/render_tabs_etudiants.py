@@ -13,7 +13,7 @@ def return_tabs(filename):
         
         for row in content:
 
-            if count < 10:
+            if count < 222:
                 if count == 1:
                     fieldnames = row;
                     
