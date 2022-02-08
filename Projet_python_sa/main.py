@@ -9,13 +9,16 @@ tab_valid, tab_invalid =  separate_valid_not_rows.separate_rows(arrray_students)
 # print("Sur",len(arrray_students),"enregistrements on a :");
 # print("\tTaux d'enregistrement valide est :", round(len(tab_valid)*100/len(arrray_students),2),"%");
 # print("\tTaux d'enregistrement invalide est :", round(len(tab_invalid)*100/len(arrray_students),2),"%");
+n = 5
 
 notes = arrray_students[0]['Note'].split("#");
-print(arrray_students[0]['Note'])
+print(arrray_students[n]['Note'])
 print(notes)
-notes[0] = notes[0].rstrip()
-print(len(notes[0]))
-print(notes[0][len(notes[0])-1])
+notes[n] = notes[n].rstrip()
+notes[n] = notes[n].replace("]","")
+
+# print(notes[0][len(notes[0])-1])
+print(notes[n])
 
 
 
