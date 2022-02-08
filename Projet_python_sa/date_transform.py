@@ -34,16 +34,16 @@ def switch_mounth(mounth):
 
 def check_date_format(born):
 
-    seg = re.split('[-./ ]',born);
+    seg = re.split('[-., _;:/ ]',born);
 
     if len(seg) > 3:
+        pass
+
+    else:
         seg[1] = switch_mounth(seg[1]);
         
-    else:
-        if seg[1] == 13:
-            pass
-        else:
-            seg[1] = str(switch_mounth(seg[1]));
-
+        if int(seg[2]) < 100:
+            seg[2] = '19'+str(seg[2])
     
     return datetime.datetime(int(seg[2]),int(seg[1]),int(seg[0])).strftime("%d/%m/%Y");
+    
