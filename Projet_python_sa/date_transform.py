@@ -1,8 +1,6 @@
 import datetime;
 import re
 
-tab = ["12-jan.-87","21/10/1988","1-decembre-1993","05-01-1992","13 03-1994","18.2.1996"]
-elements = [];
 
 def switch_mounth(mounth):
 
@@ -20,7 +18,7 @@ def switch_mounth(mounth):
         return 6;
     elif mounth == "juillet" or mounth=="Juillet" or mounth=='7' or mounth =='07':
         return 7;
-    elif mounth == "aout" or mounth=="Aout" or mounth=='8' or mounth=="Aug" or mounth =='08':
+    elif mounth == "aout" or mounth=="Aug" or mounth=="Aout" or mounth=='8' or mounth =='08':
         return 8;
     elif mounth == "sept" or mounth=="Sep" or mounth=="septembre" or mounth=="Septembre" or mounth=='9' or mounth =='09':
         return 9;
@@ -34,25 +32,18 @@ def switch_mounth(mounth):
         return 0;
 
 
-for item in tab:
-    print(item)
-    seg = re.split('[-./ ]',item);
+def check_date_format(born):
+
+    seg = re.split('[-./ ]',born);
 
     if len(seg) > 3:
         seg[1] = switch_mounth(seg[1]);
         
-
     else:
-        seg[1] = str(switch_mounth(seg[1]));
-        print(seg);
-        elements.append(seg);
-    print("\n")
+        if seg[1] == 13:
+            pass
+        else:
+            seg[1] = str(switch_mounth(seg[1]));
 
-#element = elements[0]
-#print(element)
-#print(datetime.datetime(int(element[2]),int(element[1]),int(element[0])).strftime("%d/%m/%Y"));
-
-print(elements)
-
-for element in elements:
-    print(datetime.datetime(int(element[2]),int(element[1]),int(element[0])).strftime("%d/%m/%Y"));
+    
+    return datetime.datetime(int(seg[2]),int(seg[1]),int(seg[0])).strftime("%d/%m/%Y");

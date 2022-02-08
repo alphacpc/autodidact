@@ -13,8 +13,5 @@ print("Sur",len(arrray_students),"enregistrements on a :");
 print("\tTaux d'enregistrement valide est :", round(len(tab_valid)*100/len(arrray_students),2),"%");
 print("\tTaux d'enregistrement invalide est :", round(len(tab_invalid)*100/len(arrray_students),2),"%");
 
-print(arrray_students[0])
-
-
-
+print(len(arrray_students))
 
