@@ -4,6 +4,8 @@ import datetime
 tab_valid = [];
 tab_invalid = [];
 
+
+
 # Checking column Numero
 def check_number(column_number):
 
@@ -27,6 +29,8 @@ def check_fname(fname):
 
 
 
+
+
 # Checking Column Lastname
 def check_lname(lname):
 
@@ -34,8 +38,6 @@ def check_lname(lname):
         return False
         
     return True;
-
-
 
 
 
@@ -81,11 +83,9 @@ def check_date(born):
 
         try:
             datetime.datetime(int(seg[2]),int(seg[1]),int(seg[0]))
-                
             return True;
 
         except ValueError:
-                
             return False   
 
 
@@ -98,5 +98,16 @@ def check_classe(level):
     
     return True
 
+
+
+
+
+def separate_students_with_tab(tabs):
+
+    for row in tabs:
+        if check_number(row["Numero"]) or check_lname(row["Prénom"]) or check_fname(row["Nom"]) or check_classe(row["Classe"]) or check_date(row["Date de naissance"]):
+            print("Baaaaaaakhoul !!!")
+        else:
+            print("Nice !!!")
 
 
