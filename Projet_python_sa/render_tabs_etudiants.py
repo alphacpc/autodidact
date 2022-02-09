@@ -22,7 +22,7 @@ def return_tabs(filename):
                     dictionnaire = dict(zip(fieldnames,row));
                     
                     try:
-                        dictionnaire["Date de naissance"] = date_transform.check_date_format(dictionnaire["Date de naissance"]);
+                        # dictionnaire["Date de naissance"] = date_transform.check_date_format(dictionnaire["Date de naissance"]);
 
                         Tab.append(dictionnaire);
 
