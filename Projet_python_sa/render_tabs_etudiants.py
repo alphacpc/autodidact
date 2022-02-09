@@ -1,5 +1,4 @@
 import csv;
-import date_transform;
 
 Tab = [];
 
@@ -19,10 +18,10 @@ def return_tabs(filename):
                     fieldnames = row;
                     
                 elif count >= 2:
+
                     dictionnaire = dict(zip(fieldnames,row));
                     
                     try:
-                        # dictionnaire["Date de naissance"] = date_transform.check_date_format(dictionnaire["Date de naissance"]);
 
                         Tab.append(dictionnaire);
 
@@ -31,5 +30,6 @@ def return_tabs(filename):
 
 
             count += 1;
+        
             
         return Tab;
