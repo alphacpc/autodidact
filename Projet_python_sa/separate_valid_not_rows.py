@@ -128,16 +128,25 @@ def check_classe(level):
 def separate_students_with_tab(tabs):
 
     for row in tabs:
+        
+        sum_moyenne = 0;
+        moyenne_g = 0;
+
         if (check_number(row["Numero"]) and 
             check_lname(row["Prénom"]) and 
             check_fname(row["Nom"]) and 
             check_classe(row["Classe"]) and
             check_date(row["Date de naissance"]) and
             check_field_empty(row)):
-            
-            # print(len(row),"\n")
-            # print(row["Numero"])
+      
             row['Note'] = tr_notes.notes_training(row['Note'])
+
+            for moyenne in row['Note']:
+                sum_moyenne += int(moyenne['moyenne'])
+
+            moyenne_g = round(sum_moyenne/6,2)
+            row["Moyenne Général"] = moyenne_g;
+
             # print(row['Note'])
             tab_valid.append(row);
 

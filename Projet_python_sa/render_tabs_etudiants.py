@@ -20,10 +20,6 @@ def return_tabs(filename):
             elif count >= 1:
 
                 dictionnaire = dict(zip(fieldnames,row[1:]));
-                # dictionnaire['Note'] = tr_notes.notes_training(dictionnaire['Note']);
-                # print(dictionnaire['Note'])
-
-                
 
                 Tab.append(dictionnaire);
 
