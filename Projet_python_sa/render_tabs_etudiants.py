@@ -12,14 +12,14 @@ def return_tabs(filename):
         content = csv.reader(csv_file);
         
         for row in content:
-            
-            if count == 1:
-                fieldnames = row;
-                    
-            elif count >= 2:
 
-                dictionnaire = dict(zip(fieldnames,row));
+            if count == 0:
+                fieldnames = row[1:];
                     
+            elif count >= 1:
+
+                dictionnaire = dict(zip(fieldnames,row[1:]));
+
                 Tab.append(dictionnaire);
 
             count += 1;

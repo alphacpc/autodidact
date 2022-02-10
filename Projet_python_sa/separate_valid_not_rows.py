@@ -1,3 +1,4 @@
+from itertools import count
 import re
 import datetime
 
@@ -6,13 +7,30 @@ tab_invalid = [];
 
 
 
+#Check field by field if empty()
+def check_field_empty(row):
+    
+    for key in row:
+
+        if len(row[key])==0:
+            print("Bakhoullll !!!")
+
+            return False
+
+    return True
+
+
+
+
+
+
 # Checking column Numero
 def check_number(column_number):
 
-    if (len(column_number) != 7) or column_number.islower()== True or column_number.isalnum()==False :
-        return False
+    if len(column_number)== 7 and column_number.isupper() and column_number.isalnum() and not column_number.isalpha() and not column_number.isdigit():
+        return True
     
-    return True
+    return False
 
 
 
@@ -20,13 +38,10 @@ def check_number(column_number):
 # Checking Column Firstname
 def check_fname(fname):
 
-    if len(fname) < 3 or fname[0].isalpha() == False:
-        return False
-        
-    return True;
-
-
-
+    if len(fname) >= 3 and fname[0].isalpha() and fname.isalpha():
+        return True
+    
+    return False;
 
 
 
@@ -34,10 +49,10 @@ def check_fname(fname):
 # Checking Column Lastname
 def check_lname(lname):
 
-    if len(lname) < 2 or lname[0].isalpha() == False:
-        return False
-        
-    return True;
+    if len(lname) >= 2 and lname[0].isalpha() and lname.isalpha():
+        return True
+    
+    return False;
 
 
 
@@ -62,9 +77,14 @@ def check_mounth(mounth):
     ]
 
     for item in mounth_keys:
-        if mounth.lower().startswith(item[0]):
-            mounth = item["value"]
         
+        if mounth.isalpha():
+
+            if mounth.lower().startswith(item["label"]) or mounth.startswith(item["label"]):
+                mounth = item["value"]
+        else :
+            mounth = mounth
+
     return mounth;
 
 
@@ -93,10 +113,13 @@ def check_date(born):
 # Checking Column classe level
 def check_classe(level):
 
-    if ("em" in level)==False and len(level) != 4 and (level.endswith("A")==False or level.endswith("B")==False):
-        return False;
+    level = level.replace(" ","");
+
+    if ("em" in level) and len(level) == 4 and (level.endswith("A") or level.endswith("B")) and (level.startswith("6") or level.startswith("5") or level.startswith("4") or level.startswith("3")):
     
-    return True
+        return True;
+    
+    return False
 
 
 
@@ -105,9 +128,20 @@ def check_classe(level):
 def separate_students_with_tab(tabs):
 
     for row in tabs:
-        if check_number(row["Numero"]) or check_lname(row["Prénom"]) or check_fname(row["Nom"]) or check_classe(row["Classe"]) or check_date(row["Date de naissance"]):
-            print("Baaaaaaakhoul !!!")
-        else:
-            print("Nice !!!")
+        if (check_number(row["Numero"]) and 
+            check_lname(row["Prénom"]) and 
+            check_fname(row["Nom"]) and 
+            check_classe(row["Classe"]) and
+            check_date(row["Date de naissance"]) and
+            check_field_empty(row)):
+            
+            print(len(row),"\n")
 
+            tab_valid.append(row);
+
+        else:
+
+            tab_invalid.append(row)
+    
+    return tab_valid,tab_invalid;
 
