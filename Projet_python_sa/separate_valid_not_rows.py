@@ -110,6 +110,9 @@ def check_date(born):
 
 
 
+
+
+
 # Checking Column classe level
 def check_classe(level):
 
@@ -147,7 +150,6 @@ def separate_students_with_tab(tabs):
             moyenne_g = round(sum_moyenne/6,2)
             row["Moyenne Generale"] = moyenne_g;
 
-            # print(row['Note'])
             tab_valid.append(row);
 
         else:
