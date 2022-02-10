@@ -1,6 +1,6 @@
-from itertools import count
 import re
 import datetime
+import notes_dev_com as tr_notes;
 
 tab_valid = [];
 tab_invalid = [];
@@ -13,7 +13,7 @@ def check_field_empty(row):
     for key in row:
 
         if len(row[key])==0:
-            print("Bakhoullll !!!")
+            # print("Bakhoullll !!!")
 
             return False
 
@@ -135,8 +135,10 @@ def separate_students_with_tab(tabs):
             check_date(row["Date de naissance"]) and
             check_field_empty(row)):
             
-            print(len(row),"\n")
-
+            # print(len(row),"\n")
+            # print(row["Numero"])
+            row['Note'] = tr_notes.notes_training(row['Note'])
+            # print(row['Note'])
             tab_valid.append(row);
 
         else:

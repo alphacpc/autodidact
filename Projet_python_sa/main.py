@@ -11,3 +11,4 @@ tab_valid, tab_invalid = terminator.separate_students_with_tab(all_students);
 print("***********TABLEAU INVALIDE**********\n",len(tab_invalid))
 print("***********TABLEAU VALIDE**********\n",len(tab_valid))
 
+# print(tab_valid[4])
