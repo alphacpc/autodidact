@@ -145,7 +145,7 @@ def separate_students_with_tab(tabs):
                 sum_moyenne += int(moyenne['moyenne'])
 
             moyenne_g = round(sum_moyenne/6,2)
-            row["Moyenne Général"] = moyenne_g;
+            row["Moyenne Generale"] = moyenne_g;
 
             # print(row['Note'])
             tab_valid.append(row);
