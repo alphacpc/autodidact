@@ -113,6 +113,19 @@ def check_date(born):
 
 
 
+
+def transform_date(born):
+
+    seg = re.split('[-., _;:/ ]',born);
+
+    return datetime.datetime(int(seg[2]),int(seg[1]),int(seg[0])).strftime("%d/%m/%Y"); 
+
+
+
+
+
+
+
 # Checking Column classe level
 def check_classe(level):
 
@@ -134,25 +147,33 @@ def check_notes(notes):
     
     if notes[0].startswith("#"):
         notes = notes[1:]
-          
+    
     separate_notes = notes.split("#")
 
     for notes in separate_notes:
 
 
-        notes = notes.replace(',',';')
+        notes = notes.replace(',',';');
         notes = notes.rstrip();
         notes = notes.replace("]","");
 
-        tab_matiere_note = notes.split("[")
+        tab_matiere_note = notes.split("[");
 
         if(len(notes) == 0):
             return False;
 
         else: 
+
+            if not(':' in tab_matiere_note[1]):
+                return False;
             
+
             devoirs = tab_matiere_note[1].split(":")[0].split(';');
+
             compo = tab_matiere_note[1].split(":")[1]
+
+            if(len(tab_matiere_note[1].split(":"))==12):
+                return False
 
             for dev in devoirs:
                 if int(dev)>20:
@@ -190,6 +211,8 @@ def separate_students_with_tab(tabs):
 
             moyenne_g = round(sum_moyenne/6,2)
             row["Moyenne Generale"] = moyenne_g;
+            row["Classe"] = row["Classe"].replace(" ", "");
+            row["Date de naissance"] = transform_date(row["Date de naissance"])
 
             tab_valid.append(row);
 

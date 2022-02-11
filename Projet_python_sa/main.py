@@ -35,7 +35,6 @@ elif int(xEntre) == 4:
         
         xNumero = input("Veuillez donner un numéro composé de lettre majuscule, de chiffre et de longueur 7 : ")
 
-    # print("nice",xNumero)
     fonctions.get_element_by_numero(xNumero,all_students)
 
 
