@@ -128,6 +128,46 @@ def check_classe(level):
 
 
 
+
+#Checking notes
+def check_notes(notes):
+    
+    if notes[0].startswith("#"):
+        notes = notes[1:]
+          
+    separate_notes = notes.split("#")
+
+    for notes in separate_notes:
+
+
+        notes = notes.replace(',',';')
+        notes = notes.rstrip();
+        notes = notes.replace("]","");
+
+        tab_matiere_note = notes.split("[")
+
+        if(len(notes) == 0):
+            return False;
+
+        else: 
+            
+            devoirs = tab_matiere_note[1].split(":")[0].split(';');
+            compo = tab_matiere_note[1].split(":")[1]
+
+            for dev in devoirs:
+                if int(dev)>20:
+                    return False;
+
+            if int(compo)>20:
+                return False;
+
+
+    return True;
+
+
+
+
+
 def separate_students_with_tab(tabs):
 
     for row in tabs:
@@ -140,7 +180,8 @@ def separate_students_with_tab(tabs):
             check_fname(row["Nom"]) and 
             check_classe(row["Classe"]) and
             check_date(row["Date de naissance"]) and
-            check_field_empty(row)):
+            check_field_empty(row) and
+            check_notes(row["Note"])):
       
             row['Note'] = tr_notes.notes_training(row['Note'])
 
