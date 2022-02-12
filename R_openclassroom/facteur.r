@@ -27,3 +27,5 @@ summary(X)
 xFactory <- factor(X)
 xFactory
 mode(xFactory)
+
+length(xFactory)

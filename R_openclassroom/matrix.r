@@ -8,6 +8,7 @@
 #Pour Procéder par ligne, il faut préciser l'option byrow=TRUE
 
 m = matrix(2:26, ncol = 5, nrow = 5)
+length(m)
 
 matrix(seq(10,85,by=5),nrow = 2)
 
