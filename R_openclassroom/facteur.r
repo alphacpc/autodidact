@@ -13,7 +13,7 @@ category
 
 nlevels(category)
 
-levels(category)
+levels(cadtegory)
 levels(category) <- c("F","H")
 levels(category)
 
