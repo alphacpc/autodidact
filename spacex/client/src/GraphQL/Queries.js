@@ -5,7 +5,7 @@ export const LAUNCHES_QUERIES = gql`
         launches{
             flight_number
             mission_name
-            launch_year
+            launch_date_local
         }
     }
 `
