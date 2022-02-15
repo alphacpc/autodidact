@@ -1,3 +1,95 @@
 .App{
-    background-color: #1C658C;
+    background-color: #219F94;
+}
+
+.header{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+.body{
+    margin: 20px 10%;
+    padding: 20px 0;
+}
+h1{
+    color: black;
+    font-size: 60px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.divLegend{
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.divLegendItem{
+    display: flex;
+    align-items: center;
+}
+.divLegendItem span{
+    background: black;
+    padding: 15px 20px;
+    margin-right: 10px;
+}
+.divLegendItem span#success{
+    background-color: greenyellow;
+}
+.divLegendItem span#failure{
+    background-color: red;
+}
+
+.divLaunches{
+    margin-top: 40px;
+    margin-bottom: 100px;
+}
+
+.divLaunch{
+    background-color: #C1DEAE;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+}
+.divLaunch button{
+    background-color: #219F94;
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.divLaunch h2{
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    background: #C1DEAE;
+    padding: 40px 2%;
+    border-top: 2px solid white;
 }
