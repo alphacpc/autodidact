@@ -6,6 +6,7 @@ export const LAUNCHES_QUERIES = gql`
             flight_number
             mission_name
             launch_date_local
+            launch_success
         }
     }
 `

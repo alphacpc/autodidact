@@ -29,7 +29,23 @@ const Body = () => {
         if(launches){
             return <div className='body'>
                     <h1>Launches</h1>
+                    <div className='divLegend'>
+                        <div className='divLegendItem'>
+                            <span id="success"></span>
+                            <p>Success</p>
+                        </div>
+                        <div className='divLegendItem'>
+                            <span id="failure"></span>
+                            <p>Failure</p>
+                        </div>
+                    </div>
+
+                    <div className="divSearch">
+                        <input type="search" placeholder='Recherche...'/>
+                    </div>
+
                     <div className='divLaunches'>
+
                         {
                             launches.map((item,index) => <Launch launch={item} index={index}/> )
                         }
