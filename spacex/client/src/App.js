@@ -1,8 +1,13 @@
+import React from "react";
+import "./assets/css/app.css";
+
+import Header from "./components/header"
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello world !!!</h1>
+      <Header/>
+      <h1>spaceX</h1>
     </div>
   );
 }
