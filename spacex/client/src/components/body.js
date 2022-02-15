@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+
 
 const body = () => {
   return (
     <div className='body'>
         <h1>Launches</h1>
+    
         <div className='divLegend'>
             <div className='divLegendItem'>
                 <span id="success"></span>
