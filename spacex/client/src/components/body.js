@@ -1,8 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+
+import { useQuery } from "@apollo/client";
+import {LAUNCHES_QUERIES} from "../GraphQL/Queries";
 
 
 const body = () => {
-  return (
+
+    const {error, loading, data} =useQuery(LAUNCHES_QUERIES);
+
+    useEffect(() => {
+        console.log(data)
+    }, [data])
+
+
+
+    return (
     <div className='body'>
         <h1>Launches</h1>
     
