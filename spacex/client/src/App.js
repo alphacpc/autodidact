@@ -34,6 +34,8 @@ const client = new ApolloClient({
   link: link
 })
 
+console.log("Hello client",client)
+
 function App() {
   return (
     <ApolloProvider client={client}>

@@ -4,9 +4,11 @@ import { useQuery } from "@apollo/client";
 import {LAUNCHES_QUERIES} from "../GraphQL/Queries";
 
 
-const body = () => {
+const Body = () => {
 
-    const {error, loading, data} =useQuery(LAUNCHES_QUERIES);
+    const {error, loading, data} = useQuery(LAUNCHES_QUERIES);
+
+    console.log(data)
 
     useEffect(() => {
         console.log(data)
@@ -59,4 +61,4 @@ const body = () => {
   )
 }
 
-export default body
+export default Body

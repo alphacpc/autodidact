@@ -6,7 +6,8 @@ const schema = require("./schema.js");
 const app = express();
 
 //MIDDLEWARE CORS
-app.use(cors);
+app.use(cors());
+app.use(express.json());
 
 app.use('/graphql', graphqlHTTP({
     schema,
