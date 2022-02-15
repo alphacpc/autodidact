@@ -1,4 +1,6 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
+
+import Loader from "./loader"
 
 import { useQuery } from "@apollo/client";
 import {LAUNCHES_QUERIES} from "../GraphQL/Queries";
@@ -6,18 +8,22 @@ import {LAUNCHES_QUERIES} from "../GraphQL/Queries";
 
 const Body = () => {
 
-    const {error, loading, data} = useQuery(LAUNCHES_QUERIES);
+    const {loading, data} = useQuery(LAUNCHES_QUERIES);
+    const [launches, setLaunches] = useState([])
 
-    console.log(data)
 
     useEffect(() => {
-        console.log(data)
+        
+        if(data){
+            setLaunches(data.launches)
+        }
+
     }, [data])
 
+    console.log(launches)
 
-
-    return (
-    <div className='body'>
+    return loading? <Loader/> : (
+        <div className='body'>
         <h1>Launches</h1>
     
         <div className='divLegend'>
