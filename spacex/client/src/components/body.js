@@ -29,7 +29,7 @@ const Body = () => {
     }, [data])
 
 
-    if (true){
+    if (loading){
         return <Loader/>
     }
     else{
