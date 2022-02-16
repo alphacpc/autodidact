@@ -10,8 +10,14 @@ import {LAUNCHES_QUERIES} from "../GraphQL/Queries";
 const Body = () => {
 
     const {loading, data} = useQuery(LAUNCHES_QUERIES);
-    const [launches, setLaunches] = useState([])
+    const [launches, setLaunches] = useState([]);
+    const [search, setSearch] = useState([])
 
+    const handleChange = async(e) => {
+        await setSearch(e.target.value)
+        setLaunches(launches.filter((launch) => launch.mission_name.toLowerCase().includes(search.toLowerCase())))
+        console.log(launches)
+    }
 
     useEffect(() => {
         
@@ -41,13 +47,13 @@ const Body = () => {
                     </div>
 
                     <div className="divSearch">
-                        <input type="search" placeholder='Recherche...'/>
+                        <input type="search" placeholder='Recherche...' onChange={handleChange }/>
                     </div>
 
                     <div className='divLaunches'>
 
                         {
-                            launches.map((item,index) => <Launch launch={item} index={index}/> )
+                            launches.map((item,index) => <Launch launch={item} key={index}/> )
                         }
                     </div>
                 </div>
