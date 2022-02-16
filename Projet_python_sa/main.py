@@ -1,6 +1,7 @@
-import render_tabs_etudiants;
-import separate_valid_not_rows as terminator;
-import module_fonctions as fonctions;
+import functions.render_tabs_etudiants as render_tabs_etudiants;
+import functions.separate_valid_not_rows as terminator;
+import modules.module_fonctions as fonctions;
+
 
 all_students = render_tabs_etudiants.return_tabs("datas.csv");
 
@@ -31,7 +32,7 @@ elif int(xEntre) == 3:
 elif int(xEntre) == 4:
     xNumero = input("Donner un numéro composé de lettre majuscule, de chiffre et de longueur 7 : ")
     
-    while not(len(xNumero)== 7 and xNumero.isupper() and xNumero.isalnum() and not xNumero.isalpha() and not xNumero.isdigit()):
+    while not(len(xNumero)== 8 and xNumero.isupper() and xNumero.isalnum() and not xNumero.isalpha() and not xNumero.isdigit()):
         
         xNumero = input("Veuillez donner un numéro composé de lettre majuscule, de chiffre et de longueur 7 : ")
 
