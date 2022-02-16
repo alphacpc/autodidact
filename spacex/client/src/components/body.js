@@ -12,6 +12,7 @@ const Body = () => {
     const {loading, data} = useQuery(LAUNCHES_QUERIES);
     const [launches, setLaunches] = useState([]);
     const [search, setSearch] = useState([])
+    
 
     const handleChange = async(e) => {
         await setSearch(e.target.value)
@@ -28,7 +29,7 @@ const Body = () => {
     }, [data])
 
 
-    if (loading){
+    if (true){
         return <Loader/>
     }
     else{

@@ -111,6 +111,47 @@ h1{
     font-size: 25px;
 }
 
+/************ Loader *********/
+.divLoader{
+    padding: 20px 10%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+.imgLoader{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    animation: dawal infinite 20s;
+}
+@keyframes dawal {
+    0%{
+        transform: translateX(50%) ;
+        transform: rotate(45deg);
+    }
+    20%{
+        transform: translateX(75%);
+    }
+    40%{
+        transform: translateX(100%);
+        transform: rotate(-45deg);
+    }
+    60%{
+        transform: translateX(75%);
+    }
+    80%{
+        transform: translateX(50%);
+        transform: rotate(-45deg);
+    }
+    100%{
+        transform: translateX(0%); 
+    }
+}
+
+
+
 
 
 
