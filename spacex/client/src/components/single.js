@@ -7,11 +7,14 @@ import {LAUNCH_ID} from "../GraphQL/Queries";
 
 const Single = () => {
 
-  let {flight_number} = useParams()
-  // flight_number = parseInt(flight_number);
-  flight_number = 2;
+  let { flightNum } = useParams()
+  flightNum = parseInt(flightNum);
 
-  const {loading, data} = useQuery(LAUNCH_ID, { variables : {flight_number:2}});
+  
+
+  const { loading, error, data } = useQuery(LAUNCH_ID, {
+    variables: { flight_number: flightNum },
+  });
 
 
   useEffect( () => {
@@ -21,7 +24,7 @@ const Single = () => {
   },[data])
 
 
-  console.log(flight_number,"Le parametre passer au url")
+  console.log(flightNum,"Le parametre passer au url")
 
   return (
     <div>

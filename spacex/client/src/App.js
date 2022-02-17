@@ -36,7 +36,6 @@ const client = new ApolloClient({
   link: link
 })
 
-console.log("Hello client",client)
 
 function App() {
   return (
@@ -47,7 +46,7 @@ function App() {
         <Router>
           <Switch>
             <Route path="/" exact><Body/></Route>
-            <Route path="/single/:flight_number"><Single/></Route>
+            <Route path="/single/:flightNum"><Single/></Route>
           </Switch>
         </Router>
 

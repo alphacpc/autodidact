@@ -12,7 +12,7 @@ export const LAUNCHES_QUERIES = gql`
 `
 
 export const LAUNCH_ID = gql`
-    query{
+    query ($flight_number: Int!){
         launch(flight_number: $flight_number){
             flight_number
             mission_name
