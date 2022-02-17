@@ -1,4 +1,5 @@
 import React from "react";
+import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
 
 import { 
   ApolloClient, 
@@ -12,6 +13,8 @@ import "./assets/css/app.css";
 
 import Header from "./components/header";
 import Body from "./components/body";
+import Single from "./components/single";
+import Home from "./components/home";
 import Footer from "./components/footer";
 
 
@@ -40,12 +43,18 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <Header/>
-        <Body/>
-        <Footer/>
+      <Header/>
+      
+      <Router>
+        <Switch>
+          <Route path="/" exact><Body/></Route>
+          <Route path="/single"><Single/></Route>
+        </Switch>
+      </Router>
+      <Footer/>
+
       </div>
     </ApolloProvider>
-
   );
 }
 
