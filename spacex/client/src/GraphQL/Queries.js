@@ -10,3 +10,19 @@ export const LAUNCHES_QUERIES = gql`
         }
     }
 `
+
+export const LAUNCH_ID = gql`
+    query{
+        launch(flight_number: $flight_number){
+            flight_number
+            mission_name
+            launch_success
+            launch_year
+            launch_date_local
+            rocket{
+                rocket_name
+                rocket_type
+            }
+        }
+    }
+`

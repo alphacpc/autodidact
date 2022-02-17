@@ -8,7 +8,7 @@ const Launch = ({launch, index}) => {
                 <h2>Mission : <span className={launch.launch_success ? 'isSuccess': 'isFailure'}>{launch.mission_name}</span></h2>
                 <p>{new Date(launch.launch_date_local).toLocaleDateString()}</p>
             </div>
-            <a href="#">Show more</a>
+            <a href={`/single/${launch.flight_number}`}>Show more</a>
         </div>
     )
 }
