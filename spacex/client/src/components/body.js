@@ -14,6 +14,7 @@ const Body = () => {
     const [search, setSearch] = useState([])
     
 
+
     const handleChange = async(e) => {
         await setSearch(e.target.value)
         setLaunches(launches.filter((launch) => launch.mission_name.toLowerCase().includes(search.toLowerCase())))
@@ -48,13 +49,13 @@ const Body = () => {
                     </div>
 
                     <div className="divSearch">
-                        <input type="search" placeholder='Recherche...' onChange={handleChange }/>
+                        <input type="search" placeholder='Recherche...' onChange={(e) => setSearch(e.target.value) }/>
                     </div>
 
                     <div className='divLaunches'>
 
                         {
-                            launches.map((item,index) => <Launch launch={item} key={index}/> )
+                            launches.filter((launch) => launch.mission_name.toLowerCase().includes(search.toLowerCase())).map((item,index) => <Launch launch={item} key={index}/> )
                         }
                     </div>
                 </div>

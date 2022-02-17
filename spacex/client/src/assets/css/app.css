@@ -154,6 +154,51 @@ h1{
 
 
 
+/* Single Page */
+.divDetail{
+    margin: 20px 10%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+.divDetail > div{
+    width: 100%;
+}
+
+.panelHead{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.panelHead a{
+    background-color: #F05;
+    color: #FFF;
+    padding: 10px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.divDetail h1{
+    font-weight: bold;
+}
+
+
+.divDetailItem{
+    background-color: #B4FE98;
+    margin-bottom: 40px;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 #000000;
+    width: 100%;
+}
+
+.divDetailItem p{
+    line-height: 50px;
+    font-size: 28px;
+}
+
+
+
 
 
 

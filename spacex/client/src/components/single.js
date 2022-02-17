@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
+import {Link} from "react-router-dom"
 
 import {LAUNCH_ID} from "../GraphQL/Queries";
 
@@ -23,14 +24,17 @@ const Single = () => {
 
   },[data])
 
-  console.log("Le contenu dans launch", launch.mission_name)
+  console.log("Le contenu dans nice launch", launch.mission_name)
 
   return (
     <div className="divDetail">
 
       <div>
-        
-        <h1>Mission : {launch.mission_name}</h1>
+
+        <div className='panelHead'>
+          <h1>Mission : {launch.mission_name}</h1>
+          <Link to="/">Retour</Link>
+        </div>
 
         <div className="divDetailItem">
           <p>Flight Number : { launch.flight_number } </p>
@@ -42,6 +46,7 @@ const Single = () => {
           <p>Rocket name : {launch.rocket.rocket_name}</p>
           <p>Rocket type : {launch.rocket.rocket_type}</p>
         </div>
+
 
       </div>
       
