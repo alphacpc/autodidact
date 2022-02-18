@@ -1,3 +1,4 @@
+setwd("/home/alpha/Projects/Learning/R_openclassroom/")
 df = read.csv("datas.csv")
 
 labels = c("Math","PC","SVT","Anglais","HG","Français")
@@ -17,4 +18,5 @@ length(sep[[1]])
 for (el in sep){
   print(el)
 }
+
 
