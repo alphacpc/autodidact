@@ -1,17 +1,26 @@
-helloWord <- function(devs,exam){ 
+func_sep_notes <- function(devs,exam){ 
   count = 1
-  for(i in devs){
-    if(count == 1){
-      dev1 = i
-    }
-    
-    count <- count + 1
-  }
-  comp = exam
+  comp = as.numeric(exam)
+  dev1 = 0
+  dev2 = 0
+  dev3 = 0
   
-  return (c(dev1,dev2,dev3, comp))
+  for(i in 1:length(devs)){
+    if(i == 1){
+      dev1 = as.numeric(devs[i])
+    }
+    else if(i == 2){
+      dev2 = as.numeric(devs[i])
+    }
+    if(i == 3){
+      dev3 = as.numeric(devs[i])
+    }
+    else{
+      next()
+    }
+  }
+  
+  return(c(dev1,dev2,dev3,comp))
 }
 
-helloWord(list("12","14"), "20")
-
-list("12" "14")[[1]]
+func_sep_notes(c("18"), "20")
