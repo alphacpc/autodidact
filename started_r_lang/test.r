@@ -1,7 +1,17 @@
-helloWord <- function(){ 
-  for(i in c("12","34", "100", "200")){
-    print(i)
+helloWord <- function(devs,exam){ 
+  count = 1
+  for(i in devs){
+    if(count == 1){
+      dev1 = i
+    }
+    
+    count <- count + 1
   }
+  comp = exam
+  
+  return (c(dev1,dev2,dev3, comp))
 }
 
-helloWord()
+helloWord(list("12","14"), "20")
+
+list("12" "14")[[1]]
