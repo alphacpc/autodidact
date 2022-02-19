@@ -45,7 +45,7 @@ func_sep_notes <- function(devs,exam){
 
 
 
-row_spliting <- function(row){
+row_spliting_dataframe <- function(row){
   mondf_g = data.frame()
   row_list = strsplit(row, "#")
   
@@ -65,6 +65,8 @@ row_spliting <- function(row){
   return(mondf_g);
 }
 
+val1 = row_spliting_dataframe(col_notes[4,])
+val2 = row_spliting_dataframe(col_notes[8,])
 
-
-
+(cbind(val1,val2))
+(rbind(val1,val2))

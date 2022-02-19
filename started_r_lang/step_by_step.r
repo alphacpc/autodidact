@@ -25,6 +25,8 @@ get_note_mat = strsplit(notes_mat,"]")[[1]][1]
 
 #Split notes mat
 devoirs = strsplit(strsplit(get_note_mat,":")[[1]][1],";")
+mode(devoirs)
+
 comp = strsplit(get_note_mat,":")[[1]][2]
 devoirs[[1]][2]
 
