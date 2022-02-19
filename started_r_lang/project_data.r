@@ -10,26 +10,61 @@ length(mat_fac)
 col_notes = data.frame(df$Note)
 
 # Job on rows 4 of df
-row_four = col_notes[4,]
+#row_four = col_notes[30,]
 
 
-#Define function to split all rows
+#Define functions
+func_sep_notes <- function(devs,exam){ 
+  count = 1
+  comp = as.numeric(exam)
+  dev1 = 0
+  dev2 = 0
+  dev3 = 0
+  
+  for(i in 1:length(devs[[1]])){
+    if(i == 1){
+      dev1 = as.numeric(devs[[1]][i])
+    }
+    else if(i == 2){
+      dev2 = as.numeric(devs[[1]][i])
+    }
+    if(i == 3){
+      dev3 = as.numeric(devs[[1]][i])
+    }
+    else{
+      next()
+    }
+  }
+  
+  return(c(dev1,dev2,dev3,comp))
+}
+
+
+
+
+
+
+
 row_spliting <- function(row){
-  row_list = strsplit(row_four, "#")
-  print(row_list)
+  mondf_g = data.frame()
+  row_list = strsplit(row, "#")
+  
   for (mat in row_list[[1]]){
-    
     label_matiere = strsplit(mat,"\\[")[[1]][1]
     notes_matiere = strsplit(strsplit(mat,"\\[")[[1]][2],"]")[[1]][1]
     devoirs = strsplit(strsplit(notes_matiere,":")[[1]][1],";")
     comp = strsplit(notes_matiere,":")[[1]][2]
-    #print(label_matiere)
-    #print(devoirs)
-    #print(comp)
+    
+    matrix_item = matrix(func_sep_notes(devoirs, comp),byrow=F, ncol=4)
+    
+    mondf = data.frame(note=matrix_item,row.names=label_matiere)
+    
+    mondf_g = rbind(mondf_g,mondf)
+    
   }
-  return(c(label_matiere,devoirs,comp))
+  return(mondf_g);
 }
 
-row_spliting(row_four)
+
 
 
