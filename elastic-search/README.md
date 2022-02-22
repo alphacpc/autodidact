@@ -17,3 +17,4 @@
 ### Creation de base de données (appelé *index* sur Elastic Search)
 Type (*table*) : utilisateurs <br>
 proprétés (*champs*) : nom/prenom/age/adresse <br>
+
