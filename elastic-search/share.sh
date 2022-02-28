@@ -1,6 +1,16 @@
-curl -X PUT 'http://127.0.0.1:9200/db_hello_test' '{
-  "settings": {
-    "number_of_shards": 3,
-    "number_of_replicas": 2
+curl -PUT 'http://localhost:9200/my-index?pretty' -H 'Content-Type: application/json' -d '
+{
+  "mappings": {
+    "runtime": {
+      "day_of_week": {
+        "type": "keyword",
+        "script": {
+          "source": "emit(doc['@timestamp'].value.dayOfWeekEnum.getDisplayName(TextStyle.FULL, Locale.ROOT))"
+        }
+      }
+    },
+    "properties": {
+      "@timestamp": {"type": "date"}
+    }
   }
 }'

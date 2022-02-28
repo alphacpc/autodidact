@@ -1,0 +1,1 @@
+curl -GET 'http://localhost:9200/lab_es_1_curl/_mapping?pretty' 
