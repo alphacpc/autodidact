@@ -1,3 +1,9 @@
+######################################################
+######################################################
+##############RECHERCHE PAR MATCH#####################
+######################################################
+######################################################
+
 #SEARCH ALL FIELD
 curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: application/json' -d'
 {
@@ -35,6 +41,72 @@ curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: applic
   "query": {
     "match": {
         "email": "alphacpc@gmail.com"
+    }
+  }
+}
+'
+
+#SEARCH WITH MUST FOR AGE
+curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "bool": {
+      "must": [
+        { "match": { "age":   25  }}
+      ]
+    }
+  }
+}
+'
+
+
+
+######################################################
+######################################################
+##############RECHERCHE PAR FILTER####################
+######################################################
+######################################################
+
+#SEARCH WITH RANGE AGE
+curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": { 
+    "bool": { 
+      "filter": [ 
+        { "range": { "age": { "gte": 20 }}}
+      ]
+    }
+  }
+}
+'
+
+#SEARCH WITH RANGE AGE AND NAME CONTAINT ALPHA
+curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": { 
+    "bool": { 
+      "must": [
+        { "match": { "name":   "alpha"  }}
+      ],
+      "filter": [ 
+        { "range": { "age": { "gte": 20 }}}
+      ]
+    }
+  }
+}
+'
+
+#SEARCH WITH TERMs
+curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": { 
+    "bool": {
+      "filter": 
+        {
+          "term": {
+            "name" :"matart"
+          }
+        }
     }
   }
 }

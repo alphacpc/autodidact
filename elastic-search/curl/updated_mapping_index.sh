@@ -2,7 +2,7 @@
 curl -X PUT "localhost:9200/lab_es_0002/_mapping?pretty" -H 'Content-Type: application/json' -d'
 {
   "properties": {
-    "adress": {
+    "adresse": {
       "type": "text"
     }
   }

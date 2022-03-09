@@ -3,9 +3,9 @@ curl -X PUT "localhost:9200/lab_es_0002?pretty" -H 'Content-Type: application/js
 {
   "mappings": {
     "properties": {
-      "age":    { "type": "integer" },  
+      "name":    { "type": "text" },  
       "email":  { "type": "keyword"  }, 
-      "name":   { "type": "text"  }     
+      "age":   { "type": "integer"  }     
     }
   }
 }
