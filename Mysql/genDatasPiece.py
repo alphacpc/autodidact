@@ -1,3 +1,19 @@
 from connecToDB import conn, cursor;
 
-refs = [ 9683, 9684, 9685, 9686, 9687, 9688, 9689, 9690, 9691];
+#DEFINE VAR
+tabs_refs = [];
+tabs_category = ["Carosserie", "Mecanique","Electrique"]
+
+
+
+#GET ALL 
+cursor.execute("SELECT id_ref FROM  reference");
+result = cursor.fetchall()
+for ref in result:
+    tabs_refs.append(ref[0]);
+
+
+print(tabs_refs)
+
+cursor.execute("INSERT INTO piece(categorie,date_recup,id_ref) VALUES(%s,%s,%s)", ("mecanique","12.11.2020",9684));
+conn.commit();

@@ -1,14 +1,6 @@
-import random;
-i = 1;
-prix = 1000000;
-datas = []
+import time
+import random
 
+date_rec = time.strftime('%d/%m/%Y', time.gmtime(random.randint(1515452400,int(time.time()))))
 
-while i < 10 :
-    value = round(random.random()* 10**10);
-    print(value, prix * i+ 500000)
-    mydisc = {"identifiant": value, "prix": prix}
-    datas.append(mydisc)
-    i+=1;
-
-print(datas)
+print(date_rec)
