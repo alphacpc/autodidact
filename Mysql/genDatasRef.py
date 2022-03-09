@@ -10,9 +10,7 @@ while i < 10 :
     
     key = round(random.random()* 10**4);
     
-    my_tuple = (key,prix * i+ 500000);
-    
-    cursor.execute("INSERT INTO reference(id_ref, prix) VALUES(%s, %s)", my_tuple);
+    cursor.execute("INSERT INTO reference(prix) VALUES(%s)", (prix*i + 500000,));
     
     i+=1;
 
