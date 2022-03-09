@@ -1,4 +1,3 @@
-
 from connecToDB import conn, cursor;
 import time
 import random
@@ -27,8 +26,7 @@ while i < 20:
     piece_categ = random.choice(tabs_category);
     
     piece_ref = random.choice(tabs_refs)
-    
-    print(piece_categ, piece_date_recup, piece_ref)
+   
     cursor.execute("INSERT INTO piece(categorie,date_recup,id_ref) VALUES(%s,%s,%s)", (piece_categ, piece_date_recup, piece_ref));
 
     i += 1;
