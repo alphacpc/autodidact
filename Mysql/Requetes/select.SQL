@@ -17,21 +17,49 @@ SELECT * FROM piece, reference WHERE piece.id_ref=reference.id_ref;
 SELECT id_p, categorie, date_recup, piece.id_ref, prix FROM piece, reference WHERE piece.id_ref=reference.id_ref ORDER BY prix;
 
 /*Select toutes les informations d'une piece sans répétition des colonnes id_ref avec ordre croissant des prix*/
-SELECT id_p, categorie, date_recup, piece.id_ref, prix FROM piece, reference WHERE piece.id_ref=reference.id_ref AND prix >1500000 order by prix;
+SELECT id_p, categorie, date_recup, piece.id_ref, prix FROM piece, reference WHERE piece.id_ref=reference.id_ref AND prix >1500000 ORDER BY prix;
 
 /*Pour calculer la moyenne avec la fonction AVG*/
 SELECT AVG(prix) FROM reference;
 
 /*Select toutes les pieces dont le prix est supérieur à la moyenne*/
-SELECT id_p, categorie, date_recup, piece.id_ref, prix FROM piece, reference WHERE piece.id_ref=reference.id_ref AND prix > (SELECT AVG(prix) FROM reference) order by prix;
+SELECT id_p, categorie, date_recup, piece.id_ref, prix FROM piece, reference WHERE piece.id_ref=reference.id_ref AND prix > (SELECT AVG(prix) FROM reference) ORDER BY prix;
 
 
-/*Select toutes les marques une seule fois*/
+/*SELECT TOUTES LES MARQUES DE MANIERE UNIQUE*/
 SELECT DISTINCT marque FROM vehicule;
 
-/*Compte le nombre de categorie dans la table piece*/
+/*COMPTER LE NOMBRE DE CATEGORIE DANS LA TABLE PIECE*/
 SELECT count(categorie) FROM piece;
 
-/*Prendre la categorie et le nombre de fois qu'il est present dans la table piece*/
+/*AFFICHER LA CATEGORIE ET LE NOMBRE D'OCCURENCE DANS LA TABLE PIECE*/
 SELECT categorie,count(categorie) FROM piece GROUP BY categorie;
 
+/*SELECT LA CATEGORIE, LE NOMBRE D'OCCURENCE ET LA SOMME CUMULÉE POUR UNE CATEGORIE*/
+SELECT categorie, count(categorie), sum(prix) FROM piece, reference WHERE piece.id_ref= reference.id_ref GROUP BY categorie;
+
+
+
+/* HAVING == SELECT D'UNE SELECT*/
+/*FAIRE UN TEST SUR UNE FONCTION ON UTILISE HAVING*/
+SELECT categories, count(categories), sum(prix) as somme FROM pieces, reference WHERE pieces.id_ref= reference.id_ref GROUP BY categories HAVING somme > 500000;
+
+SELECT * FROM (SELECT categories, count(categories), sum(prix) as somme FROM pieces, reference WHERE pieces.id_ref= reference.id_ref GROUP BY categories)as tab WHERE tab.somme > 430000;
+
+
+/*PRENDRE TOUTES LES CATEGORIE QUI DÉBUTE PAR 'G'*/
+SELECT * FROM pieces WHERE categories LIKE 'g%';
+
+
+/*AFFICHER TOUTES LES MARQUES QUI NE CONTINENT PAS LA LETTRE 'g', IL SUFFIT D'UTILISER LES %...%*/
+SELECT * FROM vehicule WHERE marque NOT LIKE '%g%';
+
+
+/*AFFICHER LES PIECES FABRIQUÉS DU 1er Jan 2015 au 31 Dec 2017*/
+SELECT * FROM pieces WHERE dates BETWEEN '2015-01-01' AND '2017-12-31';
+
+SELECT * FROM pieces WHERE year(dates) BETWEEN 2015 AND 2017;
+
+/*AFFICHE LES PIECES DE 3 À 10*/
+SELECT * FROM pieces LIMIT 10 offset 2;
+SELECT * FROM pieces limit 2 , 10;
