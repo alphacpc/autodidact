@@ -1,0 +1,26 @@
+/* SELECT ALL MARQUE == Lamborghini */
+SELECT * FROM vehicule WHERE marque='Lamborghini';
+
+/* SELECT ALL MARQUE == Lamborghini sans la colonne marque  */
+SELECT id_veh, annee, modele FROM vehicule WHERE marque='Lamborghini';
+
+/* SELECT Column marque */
+SELECT marque  FROM vehicule;
+
+/*Select toutes les informations d'une piece*/
+SELECT * FROM piece, reference WHERE piece.id_ref=reference.id_ref;
+
+/*Select toutes les informations d'une piece*/
+SELECT * FROM piece, reference WHERE piece.id_ref=reference.id_ref;
+
+/*Select toutes les informations d'une piece sans répétition des colonnes id_ref*/
+SELECT id_p, categorie, date_recup, piece.id_ref, prix FROM piece, reference WHERE piece.id_ref=reference.id_ref ORDER BY prix;
+
+/*Select toutes les informations d'une piece sans répétition des colonnes id_ref avec ordre croissant des prix*/
+SELECT id_p, categorie, date_recup, piece.id_ref, prix FROM piece, reference WHERE piece.id_ref=reference.id_ref AND prix >1500000 order by prix;
+
+/*Pour calculer la moyenne avec la fonction AVG*/
+SELECT AVG(prix) FROM reference;
+
+/*Select toutes les pieces dont le prix est supérieur à la moyenne*/
+SELECT id_p, categorie, date_recup, piece.id_ref, prix FROM piece, reference WHERE piece.id_ref=reference.id_ref AND prix > (SELECT AVG(prix) FROM reference) order by prix;
