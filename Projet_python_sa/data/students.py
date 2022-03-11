@@ -1,4 +1,7 @@
 from connectDB import conn, cursor;
+from datas import data;
+
+tab_matiere = [];
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS Students(
     numero VARCHAR(7) PRIMARY KEY NOT NULL,
@@ -10,4 +13,4 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS Students(
 )""");
 
 
-conn.commit();
+# conn.commit();
