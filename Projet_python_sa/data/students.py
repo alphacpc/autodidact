@@ -13,4 +13,14 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS Students(
 )""");
 
 
-# conn.commit();
+#INSERT STUDENT ON TABLE STUDENTS
+for student in data:
+    
+    student["Date de naissance"] = student["Date de naissance"].split("/")[2]+"."+student["Date de naissance"].split("/")[1]+"."+student["Date de naissance"].split("/")[0]
+
+    tup = (student['Numero'],student['Nom'],student['Prénom'],student["Date de naissance"],student['Classe'])
+
+    cursor.execute("INSERT INTO Students(numero, nom, prenom, date_naissance, nom_classe) VALUES (%s,%s,%s,%s,%s)", tup);
+
+
+conn.commit();
