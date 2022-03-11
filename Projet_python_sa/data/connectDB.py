@@ -3,7 +3,8 @@ import mysql.connector;
 config = {
   'user': 'root',
   'password': 'root',
-  'host': 'localhost'
+  'host': 'localhost',
+  'database': 'Schoolsa'
 }
 
 conn = mysql.connector.connect(**config);
