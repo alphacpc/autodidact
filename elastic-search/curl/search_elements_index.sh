@@ -80,6 +80,18 @@ curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: applic
 }
 '
 
+curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": { 
+    "bool": { 
+      "filter": [ 
+        { "range": { "age": { "gte": 20, "lte":30 }}}
+      ]
+    }
+  }
+}
+'
+
 #SEARCH WITH RANGE AGE AND NAME CONTAINT ALPHA
 curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: application/json' -d'
 {
@@ -104,7 +116,7 @@ curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: applic
       "filter": 
         {
           "term": {
-            "name" :"matart"
+            "name" :"matar"
           }
         }
     }

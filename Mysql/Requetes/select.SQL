@@ -63,3 +63,8 @@ SELECT * FROM pieces WHERE year(dates) BETWEEN 2015 AND 2017;
 /*AFFICHE LES PIECES DE 3 À 10*/
 SELECT * FROM pieces LIMIT 10 offset 2;
 SELECT * FROM pieces limit 2 , 10;
+
+
+
+/*Faire la somme pour une categorie donné*/
+select general.id_veh, general.marque, sum(general.prix) from (select big.id_p, big.id_veh, big.marque, big.annee, big.modele, big.id_ref,reference.prix from(select grand.id_p, grand.id_veh, grand.marque, grand.annee, grand.modele, piece.categorie, piece.date_recup, piece.id_ref from (select tab.id_p,vehicule.id_veh, vehicule.marque, vehicule.annee, vehicule.modele  from (select * from correspondance where id_veh = 2) as tab , vehicule where tab.id_veh = vehicule.id_veh) as grand , piece where grand.id_p = piece.id_p) as big, reference where big.id_ref= reference.id_ref) as general GROUP BY general.id_veh, general.marque,general.prix ;

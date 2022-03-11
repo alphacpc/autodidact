@@ -18,4 +18,14 @@ curl -X POST "localhost:9200/lab_es_0002/_bulk?refresh=true&pretty" -H 'Content-
 {"adresse": "Grand yoff","age":26,"email":"tely@gmail.com", "name": "Amadou tely"}
 {"index":{}}
 {"adresse": "Rufisque","age":26,"email":"mariem@gmail.com", "name": "Marieme"}
+{"index":{}}
+{"adresse": "Yeumbeul nord","age":26,"email":"alpha@gmail.com", "name": "Alpha"}
+{"index":{}}
+{"adresse": "Grand dakar","age":28,"email":"omar@gmail.com", "name": "Omar"}
+{"index":{}}
+{"adresse": "Parcelle unité 9","age":78,"email":"babs@gmail.com", "name": "Babacar"}
+{"index":{}}
+{"adresse": "Saly","age":33,"email":"laye@gmail.com", "name": "Ablaye"}
+{"index":{}}
+{"adresse": "Sédhiou","age":45,"email":"babou@gmail.com", "name": "Babacar"}
 '
