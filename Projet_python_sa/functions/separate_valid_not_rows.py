@@ -1,6 +1,8 @@
 import re
 import datetime
-import functions.notes_dev_com as tr_notes;
+import notes_dev_com as tr_notes;
+
+import render_tabs_etudiants 
 
 tab_valid = [];
 tab_invalid = [];
@@ -219,6 +221,9 @@ def separate_students_with_tab(tabs):
         else:
 
             tab_invalid.append(row)
-    
+
+    print(tab_valid)
+
     return tab_valid,tab_invalid;
 
+separate_students_with_tab(render_tabs_etudiants.return_tabs("./../datas.csv"))

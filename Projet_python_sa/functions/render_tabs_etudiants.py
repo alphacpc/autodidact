@@ -1,5 +1,5 @@
 import csv;
-import functions.notes_dev_com as tr_notes;
+import notes_dev_com as tr_notes;
 
 Tab = [];
 
