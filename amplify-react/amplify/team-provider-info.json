@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-montresreactamplify-dev-113849-authRole",
+      "UnauthRoleArn": "arn:aws:iam::340661099038:role/amplify-montresreactamplify-dev-113849-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::340661099038:role/amplify-montresreactamplify-dev-113849-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-montresreactamplify-dev-113849-deployment",
+      "UnauthRoleName": "amplify-montresreactamplify-dev-113849-unauthRole",
+      "StackName": "amplify-montresreactamplify-dev-113849",
+      "StackId": "arn:aws:cloudformation:eu-west-1:340661099038:stack/amplify-montresreactamplify-dev-113849/feafd3e0-a1f8-11ec-ae99-063105e40edd",
+      "AmplifyAppId": "dkbsk8kky24eu"
+    },
+    "categories": {
+      "auth": {
+        "montresreactamplify27569f4d": {}
+      }
+    }
+  }
+}
