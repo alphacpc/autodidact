@@ -4,8 +4,8 @@ const Header = ({currentUser, logout}) => {
 
     return (
         <div className="HeaderContainer">
-            Bonjour, {currentUser}
-            <button onClick={logout}>Sign out</button>
+            <p>Bonjour {currentUser}</p>
+            <button onClick={logout}>Déconnexion</button>
         </div>
     )
 
