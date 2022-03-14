@@ -123,3 +123,104 @@ curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: applic
   }
 }
 '
+
+
+
+
+
+
+
+
+
+######################################################
+######################################################
+##############REQUETE DE TYPE FULL TEXT###############
+######################################################
+######################################################
+
+################Recherche sur un champs unique###########
+####Rechercher le mot-clé FOIRE
+curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": 
+  {
+    "match": {
+      "adresse": "foire"
+    }
+  }
+}'
+
+
+###Recherche "diallo"
+curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": 
+  {
+    "match": {
+      "fullname": "diallo"
+    }
+  }
+}'
+
+###Recherche "diallo" avec description du score
+curl -X GET "localhost:9200/lab_es_residents/_search?explain=true" -H 'Content-Type: application/json' -d'
+{
+  "query": 
+  {
+    "match": {
+      "fullname": "diallo"
+    }
+  }
+}'
+
+
+###Recherche avec plusieurs mots clés --OR--
+curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": 
+  {
+    "match": {
+      "adresse": "foire ouest"
+    }
+  }
+}'
+
+
+
+
+###Recherche avec plusieurs mots clés --AND--
+curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": 
+  {
+    "match": 
+    {
+      "adresse":
+      {
+        "query": "foire auchan",
+        "operator": "and"
+      }
+    }
+  }
+}'
+
+
+
+
+
+################Recherche multiple champs###########
+###Recherche avec plusieurs mots clés --AND--
+
+{
+  "query": 
+  {
+    "bool": 
+    {
+      "should": 
+      [
+        {"match": {"fullname": "diallo"}},
+        {"match": {"adresse": "ouest"}}
+      ]  
+    }
+  }
+}

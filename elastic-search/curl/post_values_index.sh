@@ -28,4 +28,20 @@ curl -X POST "localhost:9200/lab_es_0002/_bulk?refresh=true&pretty" -H 'Content-
 {"adresse": "Saly","age":33,"email":"laye@gmail.com", "name": "Ablaye"}
 {"index":{}}
 {"adresse": "Sédhiou","age":45,"email":"babou@gmail.com", "name": "Babacar"}
+{"index":{}}
+{"adresse": "Pikine nord","age":44,"email":"thierno@gmail.com", "name": "Thierno"}
+{"index":{}}
+{"adresse": "Tambacounda","age":50,"email":"astou@gmail.com", "name": "Astou"}
+{"index":{}}
+{"adresse": "Kaolack","age":33,"email":"weuz@gmail.com", "name": "Ousseynou"}
+{"index":{}}
+{"adresse": "Fatick","age":77,"email":"samba@gmail.com", "name": "Samba"}
+{"index":{}}
+{"adresse": "Fann","age":40,"email":"awa@gmail.com", "name": "Awa"}
+{"index":{}}
+{"adresse": "Fass","age":55,"email":"moussa@gmail.com", "name": "Moussa"}
+{"index":{}}
+{"adresse": "Pikine","age":44,"email":"moustapha@gmail.com", "name": "Moustapha"}
+{"index":{}}
+{"adresse": "Thiaroye","age":41,"email":"alioune@gmail.com", "name": "Alioune Fall"}
 '
