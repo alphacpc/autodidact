@@ -4,7 +4,8 @@ from datas import data;
 tab_classes = [];
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS Classes(
-    nom_classe VARCHAR(25) NOT NULL PRIMARY KEY 
+    id_classe INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nom_classe VARCHAR(25) NOT NULL
 )""");
 
 ##INSERT CLASSE NAME ON TABLE CLASSES

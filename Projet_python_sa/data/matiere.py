@@ -4,7 +4,8 @@ from datas import data;
 tab_matiere = [];
 
 cursor.execute("""CREATE TABLE IF NOT EXISTS Matieres(
-    nom_mat VARCHAR(25) NOT NULL PRIMARY KEY
+    id_mat INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nom_mat VARCHAR(25) NOT NULL
 )""");
 
 ##INSERT MATIERE ON TABLE MATIERES

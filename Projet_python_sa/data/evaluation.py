@@ -15,6 +15,15 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS Evaluation(
 )""");
 
 
+
+#RECUP ALL DATA FROM CLASSES
+tab = []
+cursor.execute("SELECT * FROM Matieres");
+for k in cursor:
+    tab.append(k)
+
+
+
 for student in data:
     num = student['Numero'];
 
@@ -28,6 +37,11 @@ for student in data:
             mat["Matiere"] = "Francais";
 
         name = mat["Matiere"].strip()
+
+        for element in tab:
+            if element[1] == name:
+                id_mat = element[0]
+
         com = mat["Composition"];
         devs = mat["Devoirs"]
         (dev1, dev2, dev3, dev4, dev5) = (0,0,0,0,0)
@@ -47,7 +61,7 @@ for student in data:
             else:
                 continue;
 
-        tu = (num, name, int(com), dev1, dev2, dev3, dev4, dev5)
+        tu = (num, id_mat, int(com), dev1, dev2, dev3, dev4, dev5)
 
         cursor.execute("INSERT INTO Evaluation VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", tu);
 
