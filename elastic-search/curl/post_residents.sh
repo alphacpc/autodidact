@@ -14,4 +14,6 @@ curl -X POST "localhost:9200/lab_es_residents/_bulk?refresh=true&pretty" -H 'Con
 {"fullname": "Adja sene", "adresse": "Nord foire "}
 {"index":{}}
 {"fullname": "Abdou diallo", "adresse": "Paris boulevard 16"}
+{"index":{}}
+{"fullname": "awa diallo", "adresse": "Thiaroye taly diallo"}
 '

@@ -138,7 +138,7 @@ curl -X GET "localhost:9200/lab_es_0002/_search?pretty" -H 'Content-Type: applic
 ######################################################
 ######################################################
 
-################Recherche sur un champs unique###########
+################Recherche sur un champs unique########
 ####Rechercher le mot-clé FOIRE
 curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
 {
@@ -208,9 +208,8 @@ curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: a
 
 
 
-################Recherche multiple champs###########
-###Recherche avec plusieurs mots clés --AND--
-
+################Recherche multiples champs###########
+curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": 
   {
@@ -223,4 +222,81 @@ curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: a
       ]  
     }
   }
-}
+}'
+
+
+
+
+
+
+
+
+
+
+######################################################
+######################################################
+##############REQUETE DE TYPE FULL TEXT###############
+######################################################
+######################################################
+
+################Recherche de type dismax##############
+curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+ "query":
+ {
+   "dis_max": {
+     "queries":
+     [
+       {"match": {"adresse": "nord"}},
+       {"match": {"fullname": "diallo"}}
+     ]
+   }
+ }
+}'
+
+
+#Queries de type Multimatch
+curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": 
+  {
+    "multi_match": {
+      "type": "best_fields", 
+      "query": "diallo",
+      "fields": ["adresse","fullname"],
+      "tie_breaker": 0.3
+      
+    }
+  }
+}'
+
+
+#Multimatch avec pondération de champs
+curl -X GET "localhost:9200/lab_es_residents/_search?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query": 
+  {
+    "multi_match": {
+      "type": "best_fields", 
+      "query": "diallo",
+      "fields": ["adresse^3","fullname^0.2"],
+      "tie_breaker": 0.3
+    }
+  }
+}'
+
+
+
+
+
+
+
+
+
+
+#LA PARTIE PROXIMITÉ
+curl -X GET "localhost:9200/lab_es_happy/_analyze?pretty" -H 'Content-Type: application/json' -d'
+{
+  "field": "app_name",
+  "text" : "Je suis tres content. avoir des 5 enfants"
+}'
