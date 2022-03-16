@@ -19,56 +19,15 @@ cursor.execute("SELECT * FROM Matieres");
 for k in cursor:
     tab.append(k)
 
-# print(tab)
 
 
-# for student in data:
-#     num = student['Numero'];
-
-#     for mat in student['Note']:
-
-
-#         if mat["Matiere"].strip().startswith("A"):
-#             mat["Matiere"] = "Anglais";
-        
-#         elif mat["Matiere"].strip().startswith("F"):
-#             mat["Matiere"] = "Francais";
-
-#         name = mat["Matiere"].strip()
-
-#         for element in tab:
-#             if element[1] == name:
-#                 id_mat = element[0]
-
-#         com = mat["Composition"];
-#         devs = mat["Devoirs"]
-#         print(devs, com, id_mat , num)
-
-#         cursor.execute("INSERT INTO Evaluation VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", tu);
-
-
-
-
-#conn.commit();
-
-
-
-# print(data[4])
-num = data[44]['Numero']
-notes =  data[44]['Note']
-
-# print(notes)
+#ADDED DATA FOR TAB NOTES
 for student in data:
 
     num = student['Numero']
     notes =  student['Note']
 
     for note in notes:
-        print(note['Matiere'],note['Devoirs'], note['Composition']);
-        
-        
-        # print(note['Composition'],"comp",note['Matiere'],num )
-
 
         if note["Matiere"].strip().startswith("A"):
             note["Matiere"] = "Anglais";
@@ -82,16 +41,10 @@ for student in data:
             if element[1] == name:
                 id_mat = element[0]
 
-        print(note['Composition'],2,note['Matiere'], id_mat,num )
-
         cursor.execute("INSERT INTO Notes(note_val, note_type, id_mat, numero) VALUES (%s, %s, %s, %s)", (int(note['Composition']),2, id_mat, num));
 
         for dev in note['Devoirs']:
-            print(int(dev), 1 ,note['Matiere'], id_mat,num )
 
             cursor.execute("INSERT INTO Notes(note_val, note_type, id_mat, numero) VALUES (%s, %s, %s, %s)", (int(dev), 1 , id_mat ,num));
 
-
-#cursor.execute("INSERT INTO Notes VALUES (%s, %s, %s, %s)", (12, type, svt, numero));
-
-conn.commit();
+#conn.commit();
