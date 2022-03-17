@@ -300,3 +300,29 @@ curl -X GET "localhost:9200/lab_es_happy/_analyze?pretty" -H 'Content-Type: appl
   "field": "app_name",
   "text" : "Je suis tres content. avoir des 5 enfants"
 }'
+
+
+
+
+
+
+
+
+######################################################
+######################################################
+##############REQUETE DE PARTIAL MATCHING#############
+######################################################
+######################################################
+
+#########Sans modification de l'indexation prefix query############
+curl -X GET "localhost:9200/lab_es_happy/_analyze?pretty" -H 'Content-Type: application/json' -d'
+{
+  "query" :
+  {
+    "prefix": {
+      "email": {
+        "value": "al"
+      }
+    }
+  }
+}'
