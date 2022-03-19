@@ -1,69 +1,25 @@
-import docx
+from connnectDB import conn, cursor
+from tabulate import tabulate
 
-###############DECLARATION DES VARIABLES############
-doc = docx.Document("Reqs.docx")
-listMenuExec = []
-listMenu = [p.text for p in doc.paragraphs]
+reqs = [
+    "SELECT adresse_AGENCE FROM AGENCE",
+    "SELECT nom_USER FROM USERS WHERE id_PROFIL_PROFIL= 3 ORDER BY nom_USER",
+    "SELECT nom_USER , adresse_AGENCE from USERS, AGENCE WHERE USERS.numero_AGENCE_AGENCE = AGENCE.numero_AGENCE AND id_PROFIL_PROFIL = 1",
+    "SELECT numero_COMPTE_TRANSACTION, numero_AGENCE_AGENCE FROM `TRANSACTIONS` WHERE numero_AGENCE_AGENCE = 4 ORDER BY montant_TRANSACTION"
+]
 
-###############DEFINITION DES FONCTIONS############
-def showMenuG():
-    ind = 1;
-    for item in listMenu:
-        print(ind, ":" ,item)
-        ind += 1;
-    print("\n")
-    
+def querySQL():
+    cursor.execute("""SELECT numero_COMPTE_TRANSACTION, numero_AGENCE_AGENCE FROM `TRANSACTIONS` WHERE numero_AGENCE_AGENCE = 4 ORDER BY montant_TRANSACTION""")
+    result =  cursor.fetchall();
+    print(tabulate(result, headers=['Numero de Compte','Agence'], tablefmt='psql'))
 
-def showMenuP():
-    ind = 1;
-    for item in listMenuExec:
-        print(ind, ":" ,item)
-        ind += 1;
-    print("\n")
+querySQL();
 
-def showMenuMin():
-    print("E ou e : Pour afficher les requêtes déjà choisi pour les réexécuter")
-    print("R ou r : Pour réafficher tout le menu (exécuter ou non)")
-    print("Q ou q : Pour quitter\n")
-
-
-def checkChoice(enter):
-    print(listMenu[int(enter) - 1])
-    if listMenu[int(enter) - 1] not in listMenuExec:
-        listMenuExec.append(listMenu[int(enter) - 1])
+# def getAllAgence():
+#     cursor.execute("""SELECT adresse_AGENCE FROM AGENCE""")
+#     result =  cursor.fetchall();
+#     print(tabulate(result, headers=['Adresse des Agence'], tablefmt='psql'))
 
 
 
-###############PROGRAMME PRINCIPALE############
-showMenuG();
-
-try:
-    choix = int(input("\nVeuillez choisir une option : "))
-
-    checkChoice(choix);
-    
-    xEntre = ""
-
-    while xEntre != "q":
-
-        showMenuMin()
-
-        xEntre = input("Faites un autre choix : ").lower();
-        
-        if xEntre == "e":
-            print("\nExecutés\n")
-            showMenuP();
-
-        elif xEntre == "r":
-            print("\nRéafficher\n");
-            showMenuG()
-            choix = int(input("\nVeuillez choisir une option : "))
-            checkChoice(choix);
-
-        else:
-
-            print("Porter votre choix entre (R, E, Q)")
-        
-
-except ValueError:
-    print("Impossible de convertir cette chaine")
+#SELECT * FROM AGENCE WHERE adresse_AGENCE = "9 Banding Plaza";
