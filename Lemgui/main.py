@@ -1,4 +1,4 @@
-from connnectDB import conn, cursor
+from operator import indexOf
 from load_question import listMenu
 from query import query_sql
 
@@ -58,6 +58,16 @@ try:
         if xEntre == "e":
             print("\nExecutés\n")
             showMenuP();
+            choix = int(input("\nVeuillez choisir une option : "))
+
+            #ON RECUPERE LA QUESTION ENCOURS
+            questionRex = listMenuExec[choix - 1]
+
+            #ON RECHERCHE L'INDEX DE LA QUESTION DANS LISTEMENU
+            for question in listMenu:
+                if question == questionRex:
+                    indQuestion = listMenu.index(question)
+                    query_sql(int(indQuestion)+1)
 
 
         elif xEntre == "r":
@@ -66,10 +76,13 @@ try:
             choix = int(input("\nVeuillez choisir une option : "))
             checkChoice(choix);
 
-        else:
+        elif xEntre not in  ['r','e','q']:
 
             print("Porter votre choix entre (R, E, Q)")
         
+        else:
+
+            print("A tres bientot ! \n")
 
 except ValueError:
     print("Impossible de convertir cette chaine")
