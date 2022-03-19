@@ -1,10 +1,12 @@
 from connnectDB import conn, cursor
-import docx
+from load_question import listMenu
+from query import query_sql
+
+
 
 ###############DECLARATION DES VARIABLES############
-doc = docx.Document("Reqs.docx")
+# doc = docx.Document("Reqs.docx")
 listMenuExec = []
-listMenu = [p.text for p in doc.paragraphs]
 
 ###############DEFINITION DES FONCTIONS############
 def showMenuG():
@@ -32,6 +34,9 @@ def checkChoice(enter):
     print(listMenu[int(enter) - 1])
     if listMenu[int(enter) - 1] not in listMenuExec:
         listMenuExec.append(listMenu[int(enter) - 1])
+
+        print("Mon choix",int(enter))
+        query_sql(int(enter))
 
 
 
