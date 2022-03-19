@@ -35,7 +35,6 @@ def checkChoice(enter):
     if listMenu[int(enter) - 1] not in listMenuExec:
         listMenuExec.append(listMenu[int(enter) - 1])
 
-        print("Mon choix",int(enter))
         query_sql(int(enter))
 
 
@@ -46,7 +45,7 @@ showMenuG();
 try:
     choix = int(input("\nVeuillez choisir une option : "))
 
-    checkChoice(choix);
+    checkChoice(choix)
     
     xEntre = ""
 
@@ -54,14 +53,15 @@ try:
 
         showMenuMin()
 
-        xEntre = input("Faites un autre choix : ").lower();
+        xEntre = input("Faites un autre choix : ").lower()
         
         if xEntre == "e":
             print("\nExecutés\n")
             showMenuP();
 
+
         elif xEntre == "r":
-            print("\nRéafficher\n");
+            print("\nRéafficher\n")
             showMenuG()
             choix = int(input("\nVeuillez choisir une option : "))
             checkChoice(choix);

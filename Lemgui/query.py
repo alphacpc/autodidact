@@ -30,21 +30,40 @@ reqs = [
     "SELECT Tab.nom_USER, COUNT(Tab.nom_USER) AS nombre_de_Fois , sum(Tab.montant_TRANSACTION) AS montant_TOTAL_TRANSACTION FROM (SELECT montant_TRANSACTION, date_TRANSACTION, TRANSACTIONS.numero_AGENCE_AGENCE, USERS.nom_USER FROM TRANSACTIONS INNER JOIN USERS ON TRANSACTIONS.id_USER_USER= USERS.id_USER WHERE TRANSACTIONS.numero_AGENCE_AGENCE = 7 AND USERS.id_PROFIL_PROFIL= 4) AS Tab GROUP BY Tab.nom_USER ORDER BY sum(Tab.montant_TRANSACTION) DESC LIMIT 1",
 ]
 
-print(len(reqs))
+Libs_Header = [
+    ['adresse_AGENCE'],
+    ['nom_USER'],
+    ['nom_USER' , 'adresse_AGENCE'],
+    ['numero_COMPTE_TRANSACTION', 'numero_AGENCE_AGENCE'],
+    ['somme_TRANSACTION', 'nom_USER'],
+    ['nom_USER', 'numero_AGENCE_AGENCE'],
+    ['numero_AGENCE' ,'Occurences'],
+    ['date_debut', 'date_fin', 'numero_COMPTE_TRANSACTION'],
+    ['id_USER', 'numero_COMPTE_TRANSACTION'],
+    ['montant_TRANSACTION', 'id_USER_USER', 'date_TRANSACTION'],
+    ['date_debut', 'date_fin', 'numero_COMPTE_TRANSACTION', 'nom_USER' , 'numero_AGENCE_AGENCE'],
+    ['num_TRANSACTION', 'montant_TRANSACTION', 'date_TRANSACTION', 'numero_COMPTE_TRANSACTION', 'numero_AGENCE_AGENCE', 'id_TYPE_TYPE'],
+    ['montant_TRANSACTION', 'Frais_TRANSACTION'],
+    [''],
+    [''],
+    ['numero_AGENCE_AGENCE', 'nombre_TRANSACTION', 'montant_TOTAL_TRANSCTION'],
+    ['numero_AGENCE_AGENCE', 'nombre_TRANSACTION', 'montant_TOTAL_TRANSCTION'],
+    ['montant_TRANSACTION','numero_AGENCE', 'id_TYPE_TYPE'],
+    ['montant_TRANSACTION', 'numero_AGENCE', 'date_TRANSACTION'],
+    ['date_TRANSACTION' ,'numero_AGENCE', 'nom_USER'],
+    ['date_TRANSACTION' , 'montant_TRANSACTION', 'numero_AGENCE', 'nom_CLIENT', 'prenom_CLIENT'],
+    ['num_TRANSACTION', 'date_TRANSACTION' , 'montant_TRANSACTION', 'numero_AGENCE' , 'nom_CLIENT', 'prenom_CLIENT'],
+    ['numero_AGENCE', 'nombre_TRANSACTIONS'],
+    ['numero_AGENCE', 'nombre_TRANSACTIONS', 'montant_TOTAL_TRANSACTION'],
+    ['nom_USER', 'nombre_de_Fois' , 'montant_TOTAL_TRANSACTION']
+]
+
+
 
 def query_sql(ind):
     
-    print("La requete numero : ", ind);
+    print(listMenu[ind-1])
+    cursor.execute(reqs[ind - 1])
+    result =  cursor.fetchall()
+    print(tabulate(result, headers = Libs_Header[ind - 1], tablefmt = 'psql'))
 
-
-#querySQL();
-
-# def getAllAgence():
-#     cursor.execute("""SELECT adresse_AGENCE FROM AGENCE""")
-#     result =  cursor.fetchall();
-#     print(tabulate(result, headers=['Adresse des Agence'], tablefmt='psql'))
-
-#SELECT * FROM USERS WHERE nom_USER = "moussa diop" chef de l'agence 7;
-
-
-#SELECT * FROM AGENCE WHERE adresse_AGENCE = "9 Banding Plaza";
