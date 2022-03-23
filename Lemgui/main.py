@@ -31,7 +31,7 @@ def showMenuMin():
 
 
 def checkChoice(enter):
-    print(listMenu[int(enter) - 1])
+    # print(listMenu[int(enter) - 1])
     if listMenu[int(enter) - 1] not in listMenuExec:
         listMenuExec.append(listMenu[int(enter) - 1])
 
@@ -56,7 +56,7 @@ try:
         xEntre = input("Faites un autre choix : ").lower()
         
         if xEntre == "e":
-            print("\nExecutés\n")
+            # print("\nExecutés\n")
             showMenuP();
             choix = int(input("\nVeuillez choisir une option : "))
 

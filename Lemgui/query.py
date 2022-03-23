@@ -10,7 +10,7 @@ reqs = [
     "SELECT SUM(Tab.montant_TRANSACTION) AS somme_TRANSACTION, Tab.nom_USER FROM (SELECT TRANSACTIONS.montant_TRANSACTION, TRANSACTIONS.numero_AGENCE_AGENCE, USERS.nom_USER FROM `TRANSACTIONS` INNER JOIN USERS ON TRANSACTIONS.id_USER_USER = USERS.id_USER WHERE TRANSACTIONS.numero_AGENCE_AGENCE= 7 AND id_TYPE_TYPE = 1 AND USERS.id_PROFIL_PROFIL = 3) AS Tab GROUP BY nom_USER ORDER BY SUM(Tab.montant_TRANSACTION)",
     "SELECT nom_USER, numero_AGENCE_AGENCE FROM USERS WHERE numero_AGENCE_AGENCE = 2 AND id_PROFIL_PROFIL = 4",
     "SELECT Tab.numero_AGENCE,count(Tab.numero_AGENCE) as occurence FROM (SELECT TRANSACTIONS.numero_COMPTE_TRANSACTION, AGENCE.numero_AGENCE FROM `TRANSACTIONS`,  `AGENCE` WHERE TRANSACTIONS.numero_AGENCE_AGENCE = AGENCE.numero_AGENCE ORDER BY AGENCE.numero_AGENCE) as Tab GROUP BY Tab.numero_AGENCE",
-    "SELECT date_debut, date_fin, numero_COMPTE_TRANSACTION FROM `ASSOCIER` WHERE id_USER_USER = 5 AND date_debut >= '2021-05-01' AND date_fin <= '2021-05-31'",
+    "SELECT date_debut, date_fin, numero_COMPTE_TRANSACTION FROM `ASSOCIER` WHERE id_USER_USER = 1 AND date_debut >= '2021-05-01' AND date_fin <= '2021-05-31'",
     "SELECT id_USER_USER, numero_COMPTE_TRANSACTION FROM `ASSOCIER` WHERE numero_COMPTE_TRANSACTION = 001 AND date_debut >= '2021-01-01' AND date_fin <= '2121-12-31'",
     "SELECT montant_TRANSACTION, id_USER_USER, date_TRANSACTION FROM `TRANSACTIONS` WHERE numero_AGENCE_AGENCE = 001",
     "SELECT ASSOCIER.date_debut, ASSOCIER.date_fin, ASSOCIER.numero_COMPTE_TRANSACTION, USERS.nom_USER , USERS.numero_AGENCE_AGENCE FROM `ASSOCIER`, `USERS` WHERE ( ASSOCIER.date_debut >= '2021-01-01' AND ASSOCIER.date_fin <= '2021-04-30') AND ASSOCIER.id_USER_USER = USERS.id_USER AND USERS.numero_AGENCE_AGENCE = 001",
@@ -62,7 +62,7 @@ Libs_Header = [
 
 def query_sql(ind):
     
-    print(listMenu[ind-1])
+    # print(listMenu[ind-1])
     cursor.execute(reqs[ind - 1])
     result =  cursor.fetchall()
     print(tabulate(result, headers = Libs_Header[ind - 1], tablefmt = 'psql'))
